@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Kezelo k1 = new Kezelo("Kovács Péter", "kpeter", Szerepkor.ADMIN);
+            Kezelo k2 = new Kezelo("Nagy Anna", "nanna", Szerepkor.KERTESZ); 
         }
     }
 }
