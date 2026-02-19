@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Uveghazrendszer
 {
-	internal class Novenyfaj
+	internal class NovenyFaj
 	{
 		private string nev;
 		private int vizigeny; // max 100, azon tul egeszsegi alapota romlik
 		private int egeszsegiAllapot; // 0-10, ahol 0 elpusztult
 		private int optimalSuruseg;
 
-		public Novenyfaj(string nev, int vizigeny, int egeszsegiAllapot, int optimalSuruseg)
+		public NovenyFaj(string nev, int vizigeny, int egeszsegiAllapot, int optimalSuruseg)
 		{
 			this.nev = nev;
 			this.vizigeny = vizigeny;
