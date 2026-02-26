@@ -82,6 +82,10 @@ namespace Uveghazrendszer
 			this.noveny = null;
 			this.egyedSzam = 0;
 		}
-	
+
+		public override string ToString()
+		{
+			return $"{this.noveny.Nev} {this.egyedSzam} db. állapot: {this.noveny.EgeszsegiAllapot}";
+		}
 	}
 }
