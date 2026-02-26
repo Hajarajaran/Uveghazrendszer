@@ -55,6 +55,7 @@ namespace Uveghazrendszer
 				{
 					this.noveny.EgeszsegiAllapot -= 2;
 				}
+				Console.WriteLine($"----Egyedszam növelve! Uj mennyiseg:  {this.egyedSzam}");
 				return true;
 			} else
 			{

@@ -48,6 +48,7 @@ namespace Uveghazrendszer
 
 		public void Kiiratas()
 		{
+			Console.WriteLine();
 			for (int i = 0; i < this.kert.GetLength(0); i++)
 			{
 				
@@ -55,15 +56,37 @@ namespace Uveghazrendszer
 				{
 					if (kert[i,j].UresCella)
 					{
-						Console.Write($"|{"ÜRES", 5}");
+						Console.Write($"| ÜRES ");
 					} else
 					{
-						Console.Write($"|{kert[i,j].Noveny.Azonosito,3} {kert[i,j].EgyedSzam} db|");
+						Console.Write($"| {kert[i,j].Noveny.Azonosito,3} {kert[i,j].EgyedSzam} db ");
 					}
 				}
 				Console.Write("|");
-				Console.WriteLine("\n------------------------------------------");
+				Console.WriteLine("\n------------------------------------------------------------------------------------");
 			}
+		}
+
+		public void Noveles(int x, int y, int mennyiseg)
+		{
+			kert[x-1, y-1].Noveles(mennyiseg);
+			Console.WriteLine($"{x}, {y} ágyás növénye, a(z) {kert[x-1,y-1].Noveny.Nev}, az új egyedszám {kert[x-1, y-1].EgyedSzam}");
+			if (kert[x-1,y-1].Noveny.OptimalSuruseg > kert[x-1, y-1].EgyedSzam)
+			{
+				Console.WriteLine($"A {kert[x - 1, y - 1].EgyedSzam} db növény jól érzik magukat");
+			} else
+			{
+				Console.WriteLine($"A növények sokan vannak, nem érzik jól magukat ({kert[x-1, y-1].EgyedSzam})");
+				Csokkentes(x, y, Math.Abs(kert[x - 1, y - 1].Noveny.OptimalSuruseg - kert[x - 1, y - 1].EgyedSzam));
+
+			}
+		}
+
+		public void Csokkentes(int x, int y, int mennyiseg)
+		{
+			kert[x - 1, y - 1].Csokkentes(mennyiseg);
+			Console.WriteLine($"{x}, {y} ágyás növénye, a(z) {kert[x - 1, y - 1].Noveny.Nev}, az új egyedszám {kert[x - 1, y - 1].EgyedSzam}");
+	
 		}
 	}
 }
