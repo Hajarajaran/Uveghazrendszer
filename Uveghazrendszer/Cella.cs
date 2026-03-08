@@ -16,7 +16,7 @@ namespace Uveghazrendszer
 
 		public Cella(Pozicio poz)
 		{
-			NovenyFaj noveny = null;
+			noveny = null;
 			this.poz = poz;
 			egyedSzam = 0;
 			riasztasok = new List<Riasztas>();
@@ -44,7 +44,8 @@ namespace Uveghazrendszer
 				this.egyedSzam = egyedSzam;
 				if (this.egyedSzam > noveny.OptimalSuruseg)
 				{
-					this.noveny.EgeszsegiAllapot -= 2;
+                    Console.WriteLine($"Figyelmeztetés: a '{this.noveny.Nev}' növény cellájában túl magas a sűrűség (optimális {this.noveny.OptimalSuruseg} helyett {this.egyedSzam})");
+                    this.noveny.EgeszsegiAllapot -= 2;
 				}
 				return true;
 			}
@@ -53,9 +54,10 @@ namespace Uveghazrendszer
 				this.egyedSzam += egyedSzam;
 				if (this.egyedSzam > noveny.OptimalSuruseg)
 				{
-					this.noveny.EgeszsegiAllapot -= 2;
+                    Console.WriteLine($"Figyelmeztetés: a '{this.noveny.Nev}' növény cellájában túl magas a sűrűség (optimális {this.noveny.OptimalSuruseg} helyett {this.egyedSzam})");
+                    this.noveny.EgeszsegiAllapot -= 2;
 				}
-				Console.WriteLine($"----Egyedszam növelve! Uj mennyiseg:  {this.egyedSzam}");
+				Console.WriteLine($"Egyedszám növelve! Új mennyiség: {this.egyedSzam}");
 				return true;
 			} else
 			{
@@ -66,7 +68,7 @@ namespace Uveghazrendszer
 
 		public void Noveles(int egyedSzam)
 		{
-			this.Beultet(this.noveny, this.egyedSzam);
+			this.Beultet(this.noveny, egyedSzam);
 		}
 
 		public void Csokkentes(int egyedSzam)
